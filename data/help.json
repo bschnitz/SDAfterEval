@@ -1,0 +1,25 @@
+{
+    "subcommands": {
+        "description": "type '{script} help <subcommand>' for an extended help for <subcommand>.",
+        "commands": [
+            {
+                "name": "list",
+                "description": "the purpose of this subcommand is to filter and display the results of the automatic tests made by SDEval or the results of the comparisons - made with the compare subcommand - between the results of different CAS. for infos on how to create the latter, have a look at the 'compare' subcommand",
+                "help": "display results of SDEval"
+            },
+            {
+                "name": "help",
+                "description": "shows a help message for the command CMD, if CMD is given and a valid subcommand. if CMD is not given, a general help text will be shown. trivia: for logical reasons, this help message is superflous.",
+                "arguments": [
+                    {
+                        "options": "cmd",
+                        "metavar": "CMD",
+                        "nargs": "?",
+                        "help": "the subcommand for which the help shall be displayed."
+                    }
+                ],
+                "help": "show help message (for the specified command)"
+            }
+        ]
+    }
+}
