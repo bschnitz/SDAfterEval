@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="77cm" height="32cm" viewBox="-68 179 1538 623" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="485.724" y="181" width="52.55" height="38"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="485.724" y="181" width="52.55" height="38"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="511.999" y="203.9">
+      <tspan x="511.999" y="203.9">src</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="476.92" y="319.42" width="68.3" height="38"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="476.92" y="319.42" width="68.3" height="38"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="511.07" y="342.32">
+      <tspan x="511.07" y="342.32">classes</tspan>
+    </text>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 485.724 209.5 C 393.828,270 640.828,268 553.431,323.688"/>
+    <polygon style="fill: #000000" points="547.106,327.718 552.852,318.128 553.431,323.688 558.226,326.561 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="547.106,327.718 552.852,318.128 553.431,323.688 558.226,326.561 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="347.7" y="424.712" width="84.6" height="38"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="347.7" y="424.712" width="84.6" height="38"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="390" y="447.612">
+      <tspan x="390" y="447.612">results.py</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="-67.087" y="537.01" width="480.3" height="18"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-67.087" y="537.01" width="480.3" height="18"/>
+    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="173.063" y="551.01">class Results</text>
+    <rect style="fill: #ffffff" x="-67.087" y="555.01" width="480.3" height="116"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-67.087" y="555.01" width="480.3" height="116"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #000000" cx="-62.087" cy="565.01" rx="2" ry="2"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-58.087" y="571.01">def __init__(task, timestamp, probleminstance, results_dir)</text>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #000000" cx="-62.087" cy="581.01" rx="2" ry="2"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-58.087" y="587.01">def get_output(cas)</text>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #000000" cx="-62.087" cy="597.01" rx="2" ry="2"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-58.087" y="603.01">def set_probleminstance(probleminstance)</text>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #000000" cx="-62.087" cy="613.01" rx="2" ry="2"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-58.087" y="619.01">def set_comparator(comparator)</text>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #000000" cx="-62.087" cy="629.01" rx="2" ry="2"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-58.087" y="635.01">def start_comparison(cas1, cas2)</text>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #000000" cx="-62.087" cy="645.01" rx="2" ry="2"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-58.087" y="651.01">get_comparison_summary(cas1, cas2)</text>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #000000" cx="-62.087" cy="661.01" rx="2" ry="2"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-58.087" y="667.01">get_comparison_details(cas1, cas2)</text>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 511.07 357.42 C 483.754,403.776 411.754,381.776 394.4,416.027"/>
+    <polygon style="fill: #000000" points="391.011,422.717 391.07,411.537 394.4,416.027 399.99,416.057 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="391.011,422.717 391.07,411.537 394.4,416.027 399.99,416.057 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="189.146" y1="531.502" x2="390" y2="462.712"/>
+    <polygon style="fill: #000000" points="187.526,526.772 174.009,536.686 190.766,536.232 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="187.526,526.772 174.009,536.686 190.766,536.232 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="244" y="493">implements</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="701.124" y="249" width="73.75" height="38"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="701.124" y="249" width="73.75" height="38"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="737.999" y="271.9">
+      <tspan x="737.999" y="271.9">main.py</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="486" y="531" width="418.7" height="18"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="486" y="531" width="418.7" height="18"/>
+    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="695.35" y="545">class GatheredResults</text>
+    <rect style="fill: #ffffff" x="486" y="549" width="418.7" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="486" y="549" width="418.7" height="36"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #000000" cx="491" cy="559" rx="2" ry="2"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="495" y="565">def __init__(export_dir, task=None, timestamp=None)</text>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #000000" cx="491" cy="575" rx="2" ry="2"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="495" y="581">def make_table(restrict_to, columns=all)</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="574.174" y="420.1" width="152.45" height="38"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="574.174" y="420.1" width="152.45" height="38"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="650.399" y="443">
+      <tspan x="650.399" y="443">gathered_results.py</tspan>
+    </text>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 528.146 357.42 C 526,383 647,393 649.188,410.44"/>
+    <polygon style="fill: #000000" points="650.122,417.881 643.916,408.582 649.188,410.44 653.838,407.337 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="650.122,417.881 643.916,408.582 649.188,410.44 653.838,407.337 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="686.428" y1="516.53" x2="650.4" y2="458.1"/>
+    <polygon style="fill: #000000" points="682.172,519.154 694.825,530.149 690.684,513.905 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="682.172,519.154 694.825,530.149 690.684,513.905 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="708.7" y="489">implements</text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="426.866" y1="602.88" x2="486" y2="559"/>
+    <polygon style="fill: #000000" points="423.886,598.864 414.017,612.414 429.845,606.895 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="423.886,598.864 414.017,612.414 429.845,606.895 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="443.626" y="577">uses</text>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 545.22 338.42 C 950.002,534.76 1305,388.76 1114.17,512.464"/>
+    <polygon style="fill: #000000" points="1107.88,516.544 1113.55,506.909 1114.17,512.464 1118.99,515.3 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1107.88,516.544 1113.55,506.909 1114.17,512.464 1118.99,515.3 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="1079.55" y="517.76" width="52.9" height="38"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1079.55" y="517.76" width="52.9" height="38"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1106" y="540.66">
+      <tspan x="1106" y="540.66">tools</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="963.498" y="764.76" width="49.1" height="18"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="963.498" y="764.76" width="49.1" height="18"/>
+    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="988.048" y="778.76">Table</text>
+    <rect style="fill: #ffffff" x="963.498" y="782.76" width="49.1" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="963.498" y="782.76" width="49.1" height="20"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #000000" cx="968.498" cy="792.76" rx="2" ry="2"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="972.498" y="798.76">...</text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="958.676" y1="757.458" x2="904.7" y2="575"/>
+    <polygon style="fill: #000000" points="953.881,758.877 963.214,772.801 963.47,756.04 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="953.881,758.877 963.214,772.801 963.47,756.04 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="920.276" y="691.5">uses</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="999.178" y="655" width="111.3" height="38"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="999.178" y="655" width="111.3" height="38"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1054.83" y="677.9">
+      <tspan x="1054.83" y="677.9">table.py</tspan>
+    </text>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 1079.55,536.76 A 52.5948,52.5948 0 1 0 1082.41,607.872"/>
+    <polygon style="fill: #000000" points="1086.81,601.941 1086.18,613.103 1083.09,608.449 1077.51,608.135 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1086.81,601.941 1086.18,613.103 1083.09,608.449 1077.51,608.135 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="999.629" y1="752.315" x2="1054.83" y2="693"/>
+    <polygon style="fill: #000000" points="995.969,748.909 988.729,764.028 1003.29,755.721 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="995.969,748.909 988.729,764.028 1003.29,755.721 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1068.08" y="737.5">implements</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="1249.23" y="613" width="101.2" height="38"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1249.23" y="613" width="101.2" height="38"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1299.83" y="635.9">
+      <tspan x="1299.83" y="635.9">help_text.py</tspan>
+    </text>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 1132.45 536.76 C 1207.83,640 1290.83,566 1298,603.438"/>
+    <polygon style="fill: #000000" points="1299.41,610.804 1292.62,601.923 1298,603.438 1302.44,600.042 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1299.41,610.804 1292.62,601.923 1298,603.438 1302.44,600.042 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="1309.83" y="707" width="65.1" height="18"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1309.83" y="707" width="65.1" height="18"/>
+    <text font-size="11.2" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="1342.38" y="721">HelpText</text>
+    <rect style="fill: #ffffff" x="1309.83" y="725" width="65.1" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1309.83" y="725" width="65.1" height="20"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #000000" cx="1314.83" cy="735" rx="2" ry="2"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1318.83" y="741">...</text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="1332.09" y1="693.464" x2="1299.83" y2="651"/>
+    <polygon style="fill: #000000" points="1328.11,696.489 1341.77,706.204 1336.07,690.439 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1328.11,696.489 1341.77,706.204 1336.07,690.439 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1363.33" y="676">implements</text>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 538.274 200 C 592.34,200 647.058,268 691.388,268"/>
+    <polygon style="fill: #000000" points="698.888,268 688.888,273 691.388,268 688.888,263 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="698.888,268 688.888,273 691.388,268 688.888,263 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="797.034" y1="514.265" x2="756.436" y2="287"/>
+    <polygon style="fill: #000000" points="792.112,515.144 799.848,530.016 801.957,513.386 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="792.112,515.144 799.848,530.016 801.957,513.386 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="788.738" y="357">uses</text>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 774.874 268 C 1407.83,469 1599.83,676 1384.51,714.295"/>
+    <polygon style="fill: #000000" points="1377.13,715.608 1386.1,708.935 1384.51,714.295 1387.85,718.78 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1377.13,715.608 1386.1,708.935 1384.51,714.295 1387.85,718.78 "/>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="839.834" y="285">
+    <tspan x="839.834" y="285">uses</tspan>
+  </text>
+  <g>
+    <rect style="fill: #ffffff" x="1087.92" y="581" width="40.15" height="38"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1087.92" y="581" width="40.15" height="38"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1108" y="603.9">
+      <tspan x="1108" y="603.9">ptt</tspan>
+    </text>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 1115.85,681.993 A 56.424,56.424 0 1 0 1128.07,600"/>
+    <polygon style="fill: #000000" points="1111.56,675.956 1120.78,682.277 1115.2,682.515 1112.04,687.126 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1111.56,675.956 1120.78,682.277 1115.2,682.515 1112.04,687.126 "/>
+  </g>
+</svg>

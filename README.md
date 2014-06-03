@@ -1,0 +1,15 @@
+### Symbolic Data After Eval (sdae)
+
+#### DESCRIPTION
+
+Symbolic Data After Eval is a python3 package which is supposed to be used to
+evaluate and compare the CAS results/output created by SDEval.
+
+#### LICENSE
+
+'Symbolic Data After Eval' (sdae) is licensed under version 3 of the GNU General
+Public License.
+
+#### CONTACT
+
+Benjamin Schnitzler <benjaminschnitzler@googlemail.com>

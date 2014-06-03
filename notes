@@ -1,0 +1,26 @@
+Ausführbar im Exportfolder:
+
+Ideen:
+list - auflisten von beispielen mit verschiedenen optionen
+       anzeigen ob waiting, running, done
+       anzeigen der verbrauchten Zeit
+       id für jedes beispiel um beispiele vergleichen zu können
+       results folder muss angegeben werden, falls mehr als einer vorhanden;
+       es können auch mehrere results folder angegeben werden, dann werden die
+       ergebnisse in eine tabelle gemerged
+
+compare - a) beispiele vergleichen anhand einer vorgegebenen id
+          b) alle beispiele vergleichen und vergleichsergebnisse speichern,
+             aber nicht anzeigen; bereits vorhandene vergleichsergebnisse
+             überschreiben
+
+merge - merge another exportfolder into this one
+         · when importing an exportfolder, it gets a unique id (which is not 0)
+         · a results-id folder will be created (id is the unique id)
+         · the results from the imported exportfolder will be stored there
+         · 
+         · copy folders from the foreign results folder into this results
+           folder, renaming them, by adding a new unique id
+
+für compare: plugins
+
