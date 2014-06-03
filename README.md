@@ -5,8 +5,10 @@
 Symbolic Data After Eval is a python3 package which is supposed to be used to
 evaluate and compare the CAS results/output created by SDEval.
 
-This is a branch containing only the package contents, which should be stored in
-a directory called sdae to work as a python package.
+This directory contains the pure package contents of 'Symbolic Data After Eval'
+and should be named sdae to be useful as a python package. For more details on
+how to use sdae, you should read the README in the main directory of the master
+branch of SDAfterEval.
 
 #### LICENSE
 
