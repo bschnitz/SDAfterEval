@@ -18,7 +18,8 @@
 import os
 import sys
 
-from tools.help_text.help_text import HelpText
+from sdae.tools.help_text.help_text import HelpText
+from sdae.classes.gathered_results import GatheredResults
 
 class Main:
   def __init__(self, argv):
@@ -35,9 +36,24 @@ class Main:
         convert_from=self.data_path + "/help.yaml"
     )
     self.args_parser.set_handle( self.dummy, "list" )
+    self.args_parser.set_handle( self.info, "info" )
 
   def dummy(self, args):
     print("This command is not implemented yet!")
+
+  def list(self, args):
+    print("This command is not implemented yet!")
+
+  def info(self, args):
+    res = GatheredResults(args.exportdirs)
+
+    about = []
+    if args.cas:              about.append('cas')
+    if args.probleminstances: about.append('probleminstances')
+    if args.timestamps:       about.append('timestamps')
+    if len(about) == 0: about = None
+
+    res.info(about)
 
   def execute(self):
     self.args_parser.parse_and_exec()

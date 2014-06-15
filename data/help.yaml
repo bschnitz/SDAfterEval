@@ -9,10 +9,84 @@ subcommands:
         help: display results of SDEval
         description:
           "the purpose of this subcommand is to filter and display the results
-          of the automatic tests made by SDEval or the results of the
+          of the automatic tests made by SDEval (timings) or the results of the
           comparisons - made with the compare subcommand - between the results
           of different CAS. for infos on how to create the latter, have a look
-          at the 'compare' subcommand"
+          at the 'compare' subcommand."
+        epilog:
+          "the list command will fail, if invoked with '--compare cmd' or
+          '--compare both' when no comparisons with the 'compare' subcommand
+          were made."
+        arguments: 
+          - options: exportdirs
+            metavar: EXPORTDIR1,EXPORTDIR2,...
+            help: a comma seperated list of exportfolders from which the
+              results shall be included.
+          - options: --cas, -c
+            type: str
+            nargs: 1
+            metavar: CAS1,CAS2,...
+            help:
+              restrict the displayed resultset to those results produced by the
+              specified cas. CAS is a list of comma seperated names of cas.
+              these names equal those defined in SDEval or the shortcuts the
+              info subcommand will show for them. (these shortcuts are not
+              fixed; they may change when adding other tests with other sets of
+              cas.) if not given, this will default to all cas.
+          - options: --probleminstances, -p
+            type: str
+            nargs: 1
+            metavar: P1,P2,...
+            help:
+              restrict the displayed resultset to those results of the specified
+              probleminstances. PI is a list of comma seperated names of
+              probleminstances or shortcuts provided by the info command. if not
+              given, this will default to all probleminstances.
+          - options: --timestamps, -t
+            type: str
+            nargs: 1
+            metavar: TS1,TS2,...
+            help:
+              "restrict the displayed resultset to those results which were
+              created for the test runs started at those timestamps. the format
+              of a timestamp is: YYYY/MM/DD-hh:mm:ss . the info command provides
+              shortcuts which can be used instead of the whole timestamps. if
+              not given, this will default to the most recent resultset"
+          - options: --compare
+            metavar: WHAT
+            nargs: 1
+            help:
+              "if not provided and by default, this is set to 'time', which
+              means, that this subcommand shall output the timings made with
+              SDEval, if it is set to 'cmd', it will get the result summaries
+              provided by the 'compare' subcommand. if it is set to 'both', it
+              will get both."
+      - name: info
+        help: get info about the SDEval task
+        description:
+          "the purpose of this subcommand is to filter and display info about
+          the SDEval task (which cas are used, which probleminstaces, etc.)."
+        arguments: 
+          - options: exportdirs
+            metavar: EXPORTFOLDER
+            nargs: +
+            help: the exportfolders to scan for info
+          - options: --cas, -c
+            action: store_true
+            help:
+              output which cas are used and provide shortcuts for these cas,
+              which can be used with the list command.
+          - options: --probleminstances, -p
+            action: store_true
+            help:
+              output which probleminstances are considered and provide shortcuts
+              for them, which can be used with the list command.
+          - options: --timestamps, -t
+            action: store_true
+            help:
+              output the timestamps which tell when this task was run and
+              provide shortcuts for them, which can be used with the list
+              command.
       - name: help
         help: show help message (for the specified command)
         description: 
