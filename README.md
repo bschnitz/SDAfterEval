@@ -7,11 +7,12 @@ evaluate and compare the CAS results/output created by SDEval.
 
 #### INSTALLATION
 
-To make this package usable, you have to initialize the necessary tools:
+To make this package usable, you have to initialize the necessary tools (issue
+following command from the root directory of this git repository):
 
     git submodule update --init --recursive
 
-After that you may just run it from the root directory of this git repository
+After that you can run sdae from the root directory of this git repository
 (the directory this README is contained in) by issuing the following command:
 
     PYTHONPATH=. python3 sdae
