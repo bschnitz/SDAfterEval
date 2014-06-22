@@ -6,3 +6,5 @@
 	path = sdae
 	url = git@github.com:bschnitz/SDAfterEval.git
 	branch = sdae
+[url "https://github.com/bschnitz/SDAfterEval.git"]
+  insteadOf = git@github.com:bschnitz/SDAfterEval.git
