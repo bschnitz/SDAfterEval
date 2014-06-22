@@ -16,6 +16,7 @@
 # 'Symbolic Data After Eval'. If not, see <http://www.gnu.org/licenses/>.
 
 import os
+import re
 import xml.etree.ElementTree as ET
 
 class Results:
@@ -47,7 +48,7 @@ class Results:
                 None, if data shall be collected for all timestamps. the
                 timestamps will be compared to the timestamps from the
                 proceedings.xml files created by SD Eval. timestamps are strings
-                of the form 'YYYY_MM_DD_hh_mm_ss'.
+                of the form YYYY_MM_DD_hh_mm_ss.
 
             probleminstances (set or None):
                 set of the probleminstances for which data shall be collected
@@ -58,9 +59,9 @@ class Results:
                 None, if data shall be collected for all cas
     """
     self.exportdirs = set(exportdirs)
-    self.timestamps = set(timestamps)
-    self.probleminstances = set(probleminstances)
-    self.cas = set(cas)
+    self.timestamps = set(timestamps) if timestamps else None
+    self.probleminstances = set(probleminstances) if probleminstances else None
+    self.cas = set(cas) if cas else None
 
   def get_timestamp(self, results_subdir):
     """ for the given subdirectory of results_dir, obtain the timestamp
@@ -70,7 +71,7 @@ class Results:
             the directory where proceedings.xml is located
 
     Returns:
-        the timestamp as 'YYYY_MM_DD_hh_mm_ss' on success,
+        the timestamp as YYYY_MM_DD_hh_mm_ss on success,
         None, on error
 
     Remark:
@@ -78,10 +79,10 @@ class Results:
     """
     try:
       self.xml_proceedings = ET.parse(results_subdir + '/proceedings.xml')
-      return xmltree.find(".//timestamp").text.strip()
+      return self.xml_proceedings.find(".//timestamp").text.strip()
     except Exception as e:
       error = "Error: Could not parse information from:\n{}"
-      print( error.format(resdir) )
+      print( error.format(results_subdir) )
       print( str(e) + '\n' )
       return None
 
@@ -90,14 +91,14 @@ class Results:
     
     Args:
         timestamp:
-            the timestamp as 'YYYY_MM_DD_hh_mm_ss' string
+            the timestamp as YYYY_MM_DD_hh_mm_ss string
 
     Returns:
         the timestamp as [ YYYY, MM, DD, hh, mm, ss ]'
     """
     return timestamp.strip().split('_')
 
-  def get_probleminstances(self, xml_proceedings, xml_timings):
+  def get_probleminstances(self, xml_proceedings, xml_timings = None):
     """ get some info about timings/proceedings
 
         Args:
@@ -105,8 +106,8 @@ class Results:
                 an xml element tree for the proceedings.xml file
 
             xml_timings:
-                an xml element tree for the resultedTimings.xml file of None, if
-                no timings shall be retrieved
+                an xml element tree for the resultedTimings.xml file of None
+                (default), if no timings shall be retrieved
 
         Returns:
             a dictionary of the form depicted below
@@ -131,29 +132,34 @@ class Results:
     probleminstances = {}
 
     # not yet completed calculations (dont have timings)
-    for status in ['waiting', 'running']:
-      for entry in xml_proceedings.findall(".//entry/" + status):
+    states = ['waiting', 'running']
+    if not xml_timings: states.append('completed')
+    for state in states:
+      for entry in xml_proceedings.findall(".//"+state+"/entry"):
         probleminstance = entry.find("./probleminstance").text.strip()
-        if probleminstance in self.probleminstances:
+        if self.have_probleminstace(probleminstance):
           probleminstance = probleminstances.setdefault(probleminstance, {})
           cas = entry.find("./computeralgebrasystem").text.strip()
-          if cas in self.cas: probleminstance[cas] = { 'status':status }
+          if self.have_cas(cas): probleminstance[cas] = { 'status':state }
 
     # completed calculations (should have timings)
-    for entry in xml_timings.findall(".//entry/completed"):
-      probleminstance = entry.find("./probleminstance").text.strip()
-      if probleminstance in self.probleminstances:
-        probleminstance = probleminstances.setdefault(probleminstance, {})
+    if xml_timings:
+      for entry in xml_timings.findall(".//completed/entry"):
+        probleminstance = entry.find("./probleminstance").text.strip()
+        if self.have_probleminstace(probleminstance):
+          probleminstance = probleminstances.setdefault(probleminstance, {})
 
-        cas = entry.find("./computeralgebrasystem").text.strip()
-        if cas in self.cas:
-          probleminstance[cas] = { 'status':'completed' }
+          cas = entry.find("./computeralgebrasystem").text.strip()
+          if self.have_cas(cas):
+            probleminstance[cas] = { 'status':'completed' }
 
-          timings = entry.find("./timings")
-          real = timings.find("./real").text.strip()
-          sys  = timings.find("./sys").text.strip()
-          user = timings.find("./user").text.strip()
-          probleminstance[cas]['timings'] = [ real, sys, user ]
+            timings = entry.find("./timings")
+            real = timings.find("./real").text.strip()
+            sys  = timings.find("./sys").text.strip()
+            user = timings.find("./user").text.strip()
+            probleminstance[cas]['timings'] = [ real, sys, user ]
+
+    return probleminstances
 
   def get_timings_xml(self, results_subdir):
     try:
@@ -167,17 +173,17 @@ class Results:
         Returns:
             a dictionary of the form depicted below
                 {
-                    name_of_exportfolder: [
-                        timestamp: [YYYY, MM, DD, hh, mm, ss]
-                        probleminstances: {
+                    path_to_exportfolder: {
+                        'timestamp': [YYYY, MM, DD, hh, mm, ss]
+                        'probleminstances': {
                             name_of_the_probleminstance:{
                                 name_of_the_cas:{
-                                    status: waiting/running/completed
-                                    timings: [ real, sys, user ]
+                                    'status': waiting/running/completed
+                                    'timings': [ real, sys, user ]
                                 }
                             }
                         }
-                    ]
+                    }
                 }
             if no timings exists for a given probleminstance/cas pair, then the
             timings key will not exist for that pair.
@@ -187,27 +193,79 @@ class Results:
             function.
     """
     timings = {}
-    for timestamp, xml_proceedings, xml_timings in self.get_result_iterator():
-      entry = []
+    for tpl in self.get_result_iterator():
+      resdir, timestamp, xml_proceedings, xml_timings = tpl
+      m = re.search("(.*)/results/[^/]+[/]{0,1}$", resdir)
+      exportfolder = m.group(1)
+      entry = {}
       entry['timestamp'] = self.parse_timestamp(timestamp)
       entry['probleminstances'] = self.get_probleminstances(
-          self.xml_proceedings, self.get_timings_xml()
+          self.xml_proceedings, self.get_timings_xml(resdir)
       )
-      timings.append(entry)
+      timings[exportfolder] = entry
     return timings
 
   def get_info(self):
-    pass # TODO: missing implementation
+    """ get info about the used cas/timestamps/probleminstances
+
+        Returns:
+            a dictionary of the form depicted below
+            {
+                'cas' : list_of_cas,
+                'probleminstances' : list_of_probleminstances,
+                'timestamps' : list_of_timestamps
+            }
+
+        the timestamps are in the form YYYY_MM_DD_hh_mm_ss.
+
+        Notice:
+            - the sort order of the lists in the dictionary above will not
+              change between several calls of this function, as long, as the
+              data in the exportfolder doesn't change.
+            - returned results underly the constraints described at the
+              __init__() function.
+    """
+    # first we insert the items in sets, from which we create lists afterwards 
+    info = {
+        'cas' : set(),
+        'probleminstances' : set(),
+        'timestamps' : set()
+    }
+
+    # get the names of the cas/probleminstances/timestamps
+    for tpl in self.get_result_iterator():
+      resdir, timestamp, xml_proceedings, xml_timings = tpl
+      info['timestamps'].add(timestamp)
+      probleminstances = self.get_probleminstances( self.xml_proceedings )
+      for probleminstance in probleminstances:
+        if self.have_probleminstace(probleminstance):
+          info['probleminstances'].add(probleminstance)
+          for cas in probleminstances[probleminstance]:
+            if self.have_cas(cas):
+              info['cas'].add(cas)
+
+    # replace the sets by the sorted lists of their items
+    info['cas'] = sorted(info['cas'])
+    info['probleminstances'] = sorted(info['probleminstances'])
+    info['timestamps'] = sorted(info['timestamps'])
+
+    return info
+
+  def get_comparison_results(self):
+    pass # not implemented yet
 
   def get_result_iterator(self):
     """ generates an iterator, for iterating over the associated results
     
-        the iterator iterates over all [timestamp, xml_proceedings, xml_timings]
-        tuples for the exportdirs and constraints specified at initialization.
-        (see description of this class for the description of these constraints)
+        the iterator iterates over all
+        [resdir, timestamp, xml_proceedings, xml_timings] tuples for the
+        exportdirs and constraints specified at initialization.  (see
+        description of this class for the description of these constraints)
         xml_proceedings is an xml-ElementTree of proceedings.xml and xml_timings
         is an xml-ElementTree of resultedTimings.xml, if that file exists, or
-        None otherwise. the timestamp is a string in form 'YYYY_MM_DD_hh_mm_ss'.
+        None otherwise. the timestamp is a string in form YYYY_MM_DD_hh_mm_ss.
+        resdir is the path to the directory, the results corresponding to
+        timestamp are found.
 
         Returns:
             the iterator
@@ -217,10 +275,20 @@ class Results:
       resdir = edir + "results/"
       if os.path.isdir(resdir):
         for subdir in os.walk(resdir).__next__()[1]:
-          if os.isdir(subdir):
-            timestamp = self.get_timestamp(subdir)
-            if timestamp in self.timestamps:
-              yield [ timestamp, self.xml_proceedings, self.get_timings_xml() ]
+          timestamp = self.get_timestamp(resdir + subdir)
+          if timestamp and self.have_timestamp(timestamp):
+            xml_timings = self.get_timings_xml(resdir+subdir)
+            yield [resdir+subdir, timestamp, self.xml_proceedings, xml_timings]
+
+  def have_probleminstace(self, probleminstance):
+    return ( self.probleminstances == None or
+             probleminstance in self.probleminstances )
+
+  def have_timestamp(self, timestamp):
+    return self.timestamps == None or timestamp in self.timestamps
+
+  def have_cas(self, cas):
+    return self.cas == None or cas in self.cas
 
 
 

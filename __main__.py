@@ -18,8 +18,11 @@
 import os
 import sys
 
+import pprint
+from importlib import import_module
+
 from sdae.tools.help_text.help_text import HelpText
-from sdae.classes.gathered_results import GatheredResults
+from sdae.classes.gathered_results import Results
 
 class Main:
   def __init__(self, argv):
@@ -35,25 +38,29 @@ class Main:
         argv=argv,
         convert_from=self.data_path + "/help.yaml"
     )
-    self.args_parser.set_handle( self.dummy, "list" )
+    self.args_parser.set_handle( self.list, "list" )
     self.args_parser.set_handle( self.info, "info" )
 
   def dummy(self, args):
+    res = Results(args.exportdirs, args.cas, args.probleminstances,
+        args.timestamps)
     print("This command is not implemented yet!")
 
   def list(self, args):
-    print("This command is not implemented yet!")
+    res = Results(
+        args.exportdirs, args.cas, args.probleminstances, args.timestamps
+    )
+
+    printer = import_module('sdae.plugins.display_results.default')
+    printer.DisplayResults().display_timings(res.get_timings())
 
   def info(self, args):
-    res = GatheredResults(args.exportdirs)
+    res = Results(
+        args.exportdirs, args.cas, args.probleminstances, args.timestamps
+    )
 
-    about = []
-    if args.cas:              about.append('cas')
-    if args.probleminstances: about.append('probleminstances')
-    if args.timestamps:       about.append('timestamps')
-    if len(about) == 0: about = None
-
-    res.info(about)
+    printer = import_module('sdae.plugins.display_results.default')
+    printer.DisplayResults().display_info(res.get_info())
 
   def execute(self):
     self.args_parser.parse_and_exec()

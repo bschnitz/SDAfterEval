@@ -3,85 +3,86 @@
         "description": "type '{script} help <subcommand>' for an extended help for <subcommand>.",
         "commands": [
             {
-                "epilog": "the list command will fail, if invoked with '--compare cmd' or '--compare both' when no comparisons with the 'compare' subcommand were made.",
-                "name": "list",
-                "help": "display results of SDEval",
                 "arguments": [
                     {
-                        "metavar": "EXPORTDIR1,EXPORTDIR2,...",
                         "options": "exportdirs",
-                        "help": "a comma seperated list of exportfolders from which the results shall be included."
-                    },
-                    {
-                        "type": "str",
-                        "nargs": 1,
-                        "options": "--cas, -c",
-                        "metavar": "CAS1,CAS2,...",
-                        "help": "restrict the displayed resultset to those results produced by the specified cas. CAS is a list of comma seperated names of cas. these names equal those defined in SDEval or the shortcuts the info subcommand will show for them. (these shortcuts are not fixed; they may change when adding other tests with other sets of cas.) if not given, this will default to all cas."
-                    },
-                    {
-                        "type": "str",
-                        "nargs": 1,
-                        "options": "--probleminstances, -p",
-                        "metavar": "P1,P2,...",
-                        "help": "restrict the displayed resultset to those results of the specified probleminstances. PI is a list of comma seperated names of probleminstances or shortcuts provided by the info command. if not given, this will default to all probleminstances."
-                    },
-                    {
-                        "type": "str",
-                        "nargs": 1,
-                        "options": "--timestamps, -t",
-                        "metavar": "TS1,TS2,...",
-                        "help": "restrict the displayed resultset to those results which were created for the test runs started at those timestamps. the format of a timestamp is: YYYY/MM/DD-hh:mm:ss . the info command provides shortcuts which can be used instead of the whole timestamps. if not given, this will default to the most recent resultset"
-                    },
-                    {
-                        "metavar": "WHAT",
-                        "options": "--compare",
-                        "nargs": 1,
-                        "help": "if not provided and by default, this is set to 'time', which means, that this subcommand shall output the timings made with SDEval, if it is set to 'cmd', it will get the result summaries provided by the 'compare' subcommand. if it is set to 'both', it will get both."
-                    }
-                ],
-                "description": "the purpose of this subcommand is to filter and display the results of the automatic tests made by SDEval (timings) or the results of the comparisons - made with the compare subcommand - between the results of different CAS. for infos on how to create the latter, have a look at the 'compare' subcommand."
-            },
-            {
-                "name": "info",
-                "help": "get info about the SDEval task",
-                "arguments": [
-                    {
-                        "metavar": "EXPORTFOLDER",
-                        "options": "exportdirs",
+                        "help": "the exportfolders from which the results shall be included.",
                         "nargs": "+",
-                        "help": "the exportfolders to scan for info"
+                        "metavar": "EXPORTFOLDER"
                     },
                     {
-                        "action": "store_true",
                         "options": "--cas, -c",
-                        "help": "output which cas are used and provide shortcuts for these cas, which can be used with the list command."
+                        "help": "restrict the displayed resultset to those results produced by the specified cas. CAS is a list of comma seperated names of cas. these names equal those defined in SDEval or the shortcuts the info subcommand will show for them. (these shortcuts are not fixed; they may change when adding other tests with other sets of cas.) if not given, this will default to all cas.",
+                        "type": "str",
+                        "metavar": "CAS1,CAS2,...",
+                        "nargs": 1
                     },
                     {
-                        "action": "store_true",
                         "options": "--probleminstances, -p",
-                        "help": "output which probleminstances are considered and provide shortcuts for them, which can be used with the list command."
+                        "help": "restrict the displayed resultset to those results of the specified probleminstances. PI is a list of comma seperated names of probleminstances or shortcuts provided by the info command. if not given, this will default to all probleminstances.",
+                        "type": "str",
+                        "metavar": "P1,P2,...",
+                        "nargs": 1
                     },
                     {
-                        "action": "store_true",
                         "options": "--timestamps, -t",
-                        "help": "output the timestamps which tell when this task was run and provide shortcuts for them, which can be used with the list command."
+                        "help": "restrict the displayed resultset to those results which were created for the test runs started at those timestamps. the format of a timestamp is: YYYY/MM/DD-hh:mm:ss . the info command provides shortcuts which can be used instead of the whole timestamps. if not given, this will default to the most recent resultset",
+                        "type": "str",
+                        "metavar": "TS1,TS2,...",
+                        "nargs": 1
+                    },
+                    {
+                        "options": "--compare",
+                        "help": "if not provided and by default, this is set to 'time', which means, that this subcommand shall output the timings made with SDEval, if it is set to 'cmd', it will get the result summaries provided by the 'compare' subcommand. if it is set to 'both', it will get both.",
+                        "nargs": 1,
+                        "metavar": "WHAT"
                     }
                 ],
-                "description": "the purpose of this subcommand is to filter and display info about the SDEval task (which cas are used, which probleminstaces, etc.)."
+                "help": "display results of SDEval",
+                "description": "the purpose of this subcommand is to filter and display the results of the automatic tests made by SDEval (timings) or the results of the comparisons - made with the compare subcommand - between the results of different CAS. for infos on how to create the latter, have a look at the 'compare' subcommand.",
+                "name": "list",
+                "epilog": "the list command will fail, if invoked with '--compare cmd' or '--compare both' when no comparisons with the 'compare' subcommand were made."
             },
             {
-                "name": "help",
-                "help": "show help message (for the specified command)",
                 "arguments": [
                     {
-                        "metavar": "CMD",
-                        "options": "cmd",
-                        "nargs": "?",
-                        "help": "the subcommand for which the help shall be displayed."
+                        "options": "exportdirs",
+                        "help": "the exportfolders to scan for info",
+                        "nargs": "+",
+                        "metavar": "EXPORTFOLDER"
+                    },
+                    {
+                        "options": "--cas, -c",
+                        "help": "output which cas are used and provide shortcuts for these cas, which can be used with the list command.",
+                        "action": "store_true"
+                    },
+                    {
+                        "options": "--probleminstances, -p",
+                        "help": "output which probleminstances are considered and provide shortcuts for them, which can be used with the list command.",
+                        "action": "store_true"
+                    },
+                    {
+                        "options": "--timestamps, -t",
+                        "help": "output the timestamps which tell when this task was run and provide shortcuts for them, which can be used with the list command.",
+                        "action": "store_true"
                     }
                 ],
-                "description": "shows a help message for the command CMD, if CMD is given and a valid subcommand. if CMD is not given, a general help text will be shown. trivia: for logical reasons, this help message is superflous."
+                "help": "get info about the SDEval task",
+                "description": "the purpose of this subcommand is to filter and display info about the SDEval task (which cas are used, which probleminstaces, etc.).",
+                "name": "info"
+            },
+            {
+                "arguments": [
+                    {
+                        "options": "cmd",
+                        "help": "the subcommand for which the help shall be displayed.",
+                        "nargs": "?",
+                        "metavar": "CMD"
+                    }
+                ],
+                "help": "show help message (for the specified command)",
+                "description": "shows a help message for the command CMD, if CMD is given and a valid subcommand. if CMD is not given, a general help text will be shown. trivia: for logical reasons, this help message is superflous.",
+                "name": "help"
             }
         ]
     }

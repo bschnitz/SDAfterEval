@@ -19,9 +19,9 @@ subcommands:
           were made."
         arguments: 
           - options: exportdirs
-            metavar: EXPORTDIR1,EXPORTDIR2,...
-            help: a comma seperated list of exportfolders from which the
-              results shall be included.
+            metavar: EXPORTFOLDER
+            nargs: +
+            help: the exportfolders from which the results shall be included.
           - options: --cas, -c
             type: str
             nargs: 1
