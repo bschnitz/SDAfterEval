@@ -15,10 +15,19 @@ To make this package usable, you have to initialize the necessary tools:
 After that you may just run it from the root directory of this git repository
 (the directory this README is contained in) by issuing the following command:
 
-    python -m sdae
+    PYTHONPATH=. python3 sdae
 
-This will emit the help message. It will not know the command right command line
-invokation of sdae at this time - don't be irritated by that.
+This will emit the help message. **Note:** PYTHONPATH=. will temporarily add the
+current folder to the path where python searches for installed modules. You can
+just export PYTHONPATH (from the git root directory of sdae):
+
+    export PYTHONPATH="$PYTHONPATH:."
+
+Now you will be able to invoke sdae via
+
+    python3 sdae
+
+from your current shell and the git root directory of the project.
 
 If you want to install sdae systemwide - TODO
 
