@@ -9,8 +9,7 @@ evaluate and compare the CAS results/output created by SDEval.
 
 To make this package usable, you have to initialize the necessary tools:
 
-    git submodule init
-    git submodule update
+    git submodule update --init --recursive
 
 After that you may just run it from the root directory of this git repository
 (the directory this README is contained in) by issuing the following command:
