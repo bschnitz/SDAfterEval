@@ -46,3 +46,12 @@ Benjamin Schnitzler <benjaminschnitzler@googlemail.com>
   the task, ...)
 - the info command should optionally display a tree, itemizing which
   exportfolders contain which results for which cas and probleminstances ...
+
+#### DEVELOPEMENT NOTES
+
+After having cloned the repository, the correct push urls in the .git/config
+must be set for pushing to the repo (especially for the submodules), e.g.:
+
+    [submodule "sdae"]
+      url = https://github.com/bschnitz/SDAfterEval.git
+      pushurl = git@github.com:bschnitz/SDAfterEval.git

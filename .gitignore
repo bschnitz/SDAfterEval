@@ -44,3 +44,6 @@ coverage.xml
 docs/_build/
 
 tests/
+
+# vim temporary files
+*.swp
